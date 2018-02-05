@@ -24,12 +24,12 @@
     <%= form.text_field :caption, id: :photo_caption %>
   </div>
 
-<!---
+
   <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar, id: :post_avatar %>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :photo_image %>
   </div>
----> 
+
 
   <div class="field">
     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %><br>
