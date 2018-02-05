@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :park_id, :value => params[:park_id] %>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :photo_name %>
@@ -37,9 +40,9 @@
     <label for="photo_category_attributes_0_name">New Tag Name</label>
     <input type="text" name="photo[category_attributes][][name]" id="post_tag_attributes_0_name">
     -->
-    <%= f.fields_for :categories, @photo.categories.build do |categories_fields| %>
-      <%= tags_fields.label :name %><br>
-      <%= tags_fields.text_field :name %><br>
+    <%= form.fields_for :categories, @photo.categories.build do |categories_fields| %>
+      <%= categories_fields.label :name %><br>
+      <%= categories_fields.text_field :name %><br>
     <% end %>
   </div>
 
