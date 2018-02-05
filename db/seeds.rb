@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Park.create(name: 'Crowell Woods Natural Area', description: 'Crowell Woods Natural Area is a small, undeveloped natural area in Aloha.')
