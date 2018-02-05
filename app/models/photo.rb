@@ -5,4 +5,6 @@ class Photo < ApplicationRecord
     
     has_many :categories, :through => :photo_categories
     
+    accepts_nested_attributes_for :categories
+    
 end

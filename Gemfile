@@ -38,6 +38,8 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'dotenv-rails'
+gem 'pry'
+
 
 #gem 'therubyracer'
 #gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
