@@ -1,0 +1,34 @@
+<%= form_with(model: photo, local: true, :html =>  { :multipart => true }) do |form| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :photo_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caption %>
+    <%= form.text_field :caption, id: :photo_caption %>
+  </div>
+
+<!---
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar, id: :post_avatar %>
+  </div>
+---> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
