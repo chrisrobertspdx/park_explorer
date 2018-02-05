@@ -3,3 +3,4 @@ class AddImageToPhotos < ActiveRecord::Migration[5.1]
     add_column :photos, :image, :string
   end
 end
+
