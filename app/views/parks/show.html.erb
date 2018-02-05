@@ -2,5 +2,13 @@
 
 <p><%= @park.description %></p>
 
+<h3>Photos</h3>
+<p>
+  <ul>
+  <% @park.photos.each {|p| %>
+  <li><%= p.name %></li>
+  <% } %>
+  </ul>
+</p>
 
 <p></p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>

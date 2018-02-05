@@ -10,12 +10,15 @@
   <%= @photo.caption %>
 </p>
 
-<!---
 <p>
-  <strong>Photo:</strong>
-  <%= image_tag(@post.avatar.url) %>
+  <strong>Categories:</strong>
+  <ul>
+  <% @photo.categories.each {|p| %>
+  <li><%= p.name %></li>
+  <% } %>
+  </ul>
 </p>
---->
+
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
