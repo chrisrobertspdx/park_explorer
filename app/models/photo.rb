@@ -20,4 +20,6 @@ class Photo < ApplicationRecord
         
     end
     
+    mount_uploader :image, ImageUploader
+    
 end
