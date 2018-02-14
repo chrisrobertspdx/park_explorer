@@ -22,8 +22,10 @@
   Params<br>
   <%= params %><br>
   Session<br>
-  Current User:<br>
+  <%= session.id %><br>
+  <br>
   <% if current_user %>
+  <strong>Current User</strong>
   ID: <%= current_user.id %><br>
   Role: <%= current_user.role %>
   <% end %>
