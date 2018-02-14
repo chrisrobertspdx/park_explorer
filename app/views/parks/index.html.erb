@@ -1,5 +1,7 @@
-<h1>Park List</h1>
+<h1>Explore A Park</h1>
 
 <% @parks.each {|p| %>
 <%= link_to p.name, park_path(p) %>
 <% } %>
+
+<p><%= link_to "Add Park", new_park_path(p) %></p>
