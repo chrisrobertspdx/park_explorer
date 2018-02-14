@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :user_id, :value => current_user.id %>
-  <%= form.hidden_field :park_id, :value => params[:park_id] %>
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :park_id %>
 
   <div class="field">
     <%= form.label :name %>

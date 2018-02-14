@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <p id="notice"><%= notice %></p>
+    
     <%= yield %>
     
   
@@ -21,7 +23,12 @@
   <%= params %><br>
   Session<br>
   Current User:<br>
-  <%= current_user %>
+  <%= current_user %><br>
+  <% if current_user %>
+  <%= current_user.id %>
+  <% end %>
+  
+  Admin Options
   
   </body>
 </html>

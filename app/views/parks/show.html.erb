@@ -6,9 +6,16 @@
 <p>
   <ul>
   <% @park.photos.each {|p| %>
-  <li><%= p.name %></li>
+  <li><%= link_to p.name, park_photo_path({park_id: @park.id,id: p.id}) %> <%= link_to "edit", edit_park_photo_path({park_id: @park,id: p.id}) %>
+  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
   <% } %>
   </ul>
 </p>
 
-<p></p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>
+<p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>
+
+
+
+
+
