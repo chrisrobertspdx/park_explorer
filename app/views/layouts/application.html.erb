@@ -23,12 +23,12 @@
   <%= params %><br>
   Session<br>
   Current User:<br>
-  <%= current_user %><br>
   <% if current_user %>
-  <%= current_user.id %>
+  ID: <%= current_user.id %><br>
+  Role: <%= current_user.role %>
   <% end %>
   
-  <br><strong>Admin Options</strong>
+  
   
   </body>
 </html>
