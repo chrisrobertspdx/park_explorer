@@ -15,9 +15,31 @@ class Photo < ApplicationRecord
         
         if newCat != ""
             @category = Category.find_or_create_by(name: newCat)
-            self.categories << @category
+            #self.categories << @category
+            #update score
+            @pc = PhotoCategory.new
+            @pc.category_id = @category.id
+            @pc.score = data["0"][:score]
+            binding.pry
+            self.photo_categories << @pc
         end
         
+    end
+    
+    #depends on order; assumes photo_categories already updated; BAD DESIGN
+    def category_scores=(data)
+        
+        data.keys.each { |k|
+            if @pc = self.photo_categories.find_by(category_id: k) 
+               @pc.score = data[k][0]
+               @pc.save
+            end
+        }
+        
+    end
+    
+    def get_category_score(category)
+        self.photo_categories.find_by(category_id: category.id).score
     end
     
     mount_uploader :image, ImageUploader

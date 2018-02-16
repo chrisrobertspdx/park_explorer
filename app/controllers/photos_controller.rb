@@ -34,8 +34,10 @@ class PhotosController < ApplicationController
   def update
     #authorized?
     @photo = Photo.find(params[:id])
+
     respond_to do |format|
       if @photo.update(photo_params)
+        
         format.html { redirect_to @photo.park, notice: 'Photo was successfully updated.' }
       else
         format.html { render :edit }
@@ -53,7 +55,7 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:name, :caption, :user_id, :park_id, :image, :category_ids => [], :categories_attributes => [:name])
+    params.require(:photo).permit(:name, :caption, :user_id, :park_id, :image, :category_scores => {}, :category_ids => [], :categories_attributes => [:name,:score])
   end
 
     

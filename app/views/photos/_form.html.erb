@@ -30,10 +30,27 @@
     <%= form.file_field :image, id: :photo_image %>
   </div>
 
-
+<!---
   <div class="field">
     <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %><br>
   </div>
+---> 
+
+<hr>
+  <div class="field">
+  <% Category.all.each { |e| %>
+    <% if photo.categories.find_by(id: e.id) 
+        checked = "checked"
+        score = photo.photo_categories.find_by(category_id: e.id).score
+      else
+        checked = ""
+        score = ""
+      end
+    %>
+    <input type="checkbox" value="<%= e.id %>" <%= checked %> name="photo[category_ids][]" id="photo_category_ids_<%= e.id %>" /> <%= e.name %> <input type="text" name="photo[category_scores][<%= e.id %>][]" value="<%= score %>" > <br>
+  <% } %>
+  </div>
+<hr>
   
   <div class="field">
     <!--
@@ -44,7 +61,10 @@
       <%= categories_fields.label :name %><br>
       <%= categories_fields.text_field :name %><br>
     <% end %>
+    <input type="text" name="photo[categories_attributes][0][score]" id="photo_categories_attributes_0_score">
   </div>
+
+  
 
   <div class="actions">
     <%= form.submit %>
