@@ -1,5 +1,5 @@
-Park Explorer
-#############
+## Park Explorer
+
 
 Park Explorer is a ruby on rails web application that lets users share their park photos and experiences with the community.
 Users score their photo in different categories. The scores can then be used a diagnostic tool and or public metric that helps inform principals about the health / state of the park.
@@ -13,7 +13,8 @@ To use this app, just clone, run 'bundle install' and then run 'rake db:migrate'
 1. Full user account system (create, login, logout, login with facebook)
 2. Admin role can add update parks
 3. User role can add and view photos as well as update delete own photos.
-4. Create, view, update and delete bikes.
+4. When adding/updating photos users are asked to score the photo according to current categories.
+5. User has option of adding new category and score on same form.
 6. View dashboard of current park metrics.
 
 ## Gems
