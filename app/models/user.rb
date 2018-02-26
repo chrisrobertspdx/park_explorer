@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
   
   has_many :photos
+  has_many :parks, through: :photos
          
   enum role: [:user, :ranger, :admin]
   after_initialize :set_default_role, :if => :new_record?

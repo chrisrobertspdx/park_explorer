@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'dotenv-rails'
 gem 'pry'
 

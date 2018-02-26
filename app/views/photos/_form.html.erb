@@ -20,14 +20,19 @@
   </div>
 
   <div class="field">
-    <%= form.label :caption %>
-    <%= form.text_field :caption, id: :photo_caption %>
+    <%= form.label :caption %><br>
+    <%= form.text_area :caption, id: :photo_caption, cols: 40, rows: 5 %>
   </div>
 
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label :image %><br>
     <%= form.file_field :image, id: :photo_image %>
+    <% if form.object.image? %>
+      <%= image_tag form.object.image.thumb.url %>
+      <%= form.label :remove_image %>
+      <%= form.check_box :remove_image %> 
+    <% end %>
   </div>
 
 <!---
@@ -37,6 +42,7 @@
 ---> 
 
 <hr>
+<h3>Category / Score</h3>
   <div class="field">
   <% Category.all.each { |e| %>
     <% if photo.categories.find_by(id: e.id) 
@@ -47,11 +53,11 @@
         score = ""
       end
     %>
-    <input type="checkbox" value="<%= e.id %>" <%= checked %> name="photo[category_ids][]" id="photo_category_ids_<%= e.id %>" /> <%= e.name %> <input type="text" name="photo[category_scores][<%= e.id %>][]" value="<%= score %>" > <br>
+    <input type="checkbox" value="<%= e.id %>" <%= checked %> name="photo[category_ids][]" id="photo_category_ids_<%= e.id %>" /> <%= e.name %> <input size="3" type="text" name="photo[category_scores][<%= e.id %>][]" value="<%= score %>" > <br>
   <% } %>
   </div>
 <hr>
-  
+  <h3>New Category</h3>
   <div class="field">
     <!--
     <label for="photo_category_attributes_0_name">New Tag Name</label>
@@ -59,9 +65,9 @@
     -->
     <%= form.fields_for :categories, @photo.categories.build do |categories_fields| %>
       <%= categories_fields.label :name %><br>
-      <%= categories_fields.text_field :name %><br>
+      <%= categories_fields.text_field :name %>
     <% end %>
-    <input type="text" name="photo[categories_attributes][0][score]" id="photo_categories_attributes_0_score">
+    <input size="2" type="text" name="photo[categories_attributes][0][score]" id="photo_categories_attributes_0_score">
   </div>
 
   

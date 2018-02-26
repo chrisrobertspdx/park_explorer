@@ -1,21 +1,30 @@
 <h1><%= @park.name %></h1>
 
-<p><%= @park.description %></p>
+<p><%= @park.description %> <%= link_to "Edit Park", edit_park_path(@park) %></p>
 
 <h3>Photos</h3>
-<p>
-  <ul>
+
+<table>
   <% @park.photos.each {|p| %>
-  <li><%= link_to p.name, park_photo_path({park_id: @park.id,id: p.id}) %> <%= link_to "edit", edit_park_photo_path({park_id: @park,id: p.id}) %>
-  <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
+  <tr>
+    <td><%= image_tag p.image.thumb.url %></td>
+    <td><%= link_to p.name, park_photo_path({park_id: @park.id,id: p.id}) %></td>
+    <td><%= link_to "edit", edit_park_photo_path({park_id: @park,id: p.id}) %>
+        <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
   <% } %>
-  </ul>
-</p>
+</table>
 
 <p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>
 
-<p><%= link_to "Edit Park", edit_park_path(@park) %></p>
+<h3>Category Summary</h3>
+<% Category.all.each {|c| %>
+  <%= c.name %>: <%=@park.get_cat_score(c)%><br>
+<% } %>
+
+
+
 
 
 
