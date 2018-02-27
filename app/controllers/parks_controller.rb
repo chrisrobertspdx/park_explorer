@@ -57,7 +57,7 @@ class ParksController < ApplicationController
     
     def authorize_admin
         if current_user.role == nil || current_user.role != 'admin'
-           flash[:notice] = "Unauthorized!!!!"
+           flash[:alert] = "Unauthorized!!!!"
            redirect_to parks_path
         end
     end

@@ -1,8 +1,8 @@
-<h1><%= @park.name %></h1>
+<h3><%= @park.name %></h3>
 
 <p><%= @park.description %> <%= link_to "Edit Park", edit_park_path(@park) %></p>
 
-<h3>Photos</h3>
+<h5>Photos</h5>
 
 <table>
   <% @park.photos.each {|p| %>
@@ -10,7 +10,7 @@
     <td><%= image_tag p.image.thumb.url %></td>
     <td><%= link_to p.name, park_photo_path({park_id: @park.id,id: p.id}) %></td>
     <td><%= link_to "edit", edit_park_photo_path({park_id: @park,id: p.id}) %>
-        <%= link_to 'delete', p, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'delete', "/parks/#{@park.id}/photos/#{p.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
     </td>
   </tr>
   <% } %>

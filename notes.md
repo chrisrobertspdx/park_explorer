@@ -25,3 +25,11 @@ install configure file upload gem
 set up resource routes
 get nested resources route figure out
 
+Questions
+Why does custom writer for category scores not work with new and save?
+What is the right way to set form action when using nested resources?
+Why do does the application add the photo category then I have to go back and update these scores?
+How would I do this in one method / query etc?
+I think it has to do with the way AR treats attributes.
+I need to build some sort of object to pass in with all the info. 
+Made a mess of this.

@@ -1,11 +1,11 @@
 class PhotosController < ApplicationController
     
-  # GET /photos/new
+    
+    
   def new
     @photo = Photo.new
     @photo.user_id = current_user.id
     @photo.park_id = params[:park_id]
-    
     #binding.pry
   end    
 
