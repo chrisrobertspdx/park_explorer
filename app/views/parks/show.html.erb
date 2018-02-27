@@ -2,8 +2,16 @@
 
 <p><%= @park.description %> <%= link_to "Edit Park", edit_park_path(@park) %></p>
 
-<h5>Photos</h5>
-
+<div class="container">
+  
+<div class="rightcontainer" style="display:block;float:right;margin-right:175px">
+<h3>Category Average</h3>
+<% Category.all.each {|c| %>
+  <%= c.name %>: <%=@park.get_cat_score(c)%><br>
+<% } %>
+</div>  
+  
+<h3>Photos</h3>
 <table>
   <% @park.photos.each {|p| %>
   <tr>
@@ -18,13 +26,9 @@
 
 <p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>
 
-<h3>Category Average</h3>
-<% Category.all.each {|c| %>
-  <%= c.name %>: <%=@park.get_cat_score(c)%><br>
-<% } %>
 
 
-
+</div>
 
 
 

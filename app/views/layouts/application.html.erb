@@ -3,7 +3,7 @@
   <head>
     <title>ParkExplorer</title>
     <style>
-      body {font-family:Tahoma, Geneva, sans-serif}
+      body {font-family:Tahoma, Geneva, sans-serif; width:70%;}
     </style>
     <%= csrf_meta_tags %>
 
@@ -15,7 +15,7 @@
     <h1>Park Explorer</h1>
    <% if current_user %>
      <div >Current Login: <%= current_user.email %> | Role: <%= current_user.role %></div>
-     <div ><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+     <div ><%= link_to "Home", root_path%> | <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
    <% end %>
  
     <% if flash[:notice] %>
@@ -27,8 +27,6 @@
     <% end %>
     
     <%= yield %>
-    
-  
 
   <br><br>
   <hr>
@@ -39,13 +37,6 @@
   Session<br>
   <%= session.id %><br>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
+
   </body>
 </html>
