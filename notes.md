@@ -33,3 +33,9 @@ How would I do this in one method / query etc?
 I think it has to do with the way AR treats attributes.
 I need to build some sort of object to pass in with all the info. 
 Made a mess of this.
+
+https://try.github.io/levels/1/challenges/1
+https://www.youtube.com/watch?v=1ffBJ4sVUb4
+From Corinna Brock Moore to Everyone:  11:41 AM
+http://hwrnmnbsol.livejournal.com/148664.html
+

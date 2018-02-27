@@ -10,12 +10,6 @@
   <%= @photo.park.name %>
 </p>
 
-
-
-
-
-
-
 <p>
   <strong>Categories:</strong>
   <ul>
@@ -30,8 +24,6 @@
     <%= image_tag(@photo.image.url) %>
   <% end %>
 </p>
-
-
 
 <%= link_to 'Edit', edit_park_photo_path({park_id: params[:park_id], id: @photo.id}) %> |
 <%= link_to 'Back', @photo.park %>

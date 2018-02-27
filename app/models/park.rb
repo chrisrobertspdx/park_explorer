@@ -6,10 +6,15 @@ has_many :photos
 has_many :photo_categories, through: :photos
 has_many :users, through: :photos
 
-
 scope :photogenic, -> {
     joins(:photos).group("parks.id").having("count(parks.id)> ?", 2)
   }
+
+scope :photogenic_cat, -> (category_id)  {
+    joins(:photos).joins(:photo_categories).where("photo_categories.category_id = ?",category_id).group("parks.id").having("count(parks.id)> ?", 2)
+  }
+  
+  #scope :created_before, ->(time) { where("created_at < ?", time) }
 
 def get_cat_score(category)
     score = 0;

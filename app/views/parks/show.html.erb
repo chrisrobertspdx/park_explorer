@@ -15,7 +15,7 @@
 <table>
   <% @park.photos.each {|p| %>
   <tr>
-    <td><%= image_tag p.image.thumb.url %></td>
+    
     <td><%= link_to p.name, park_photo_path({park_id: @park.id,id: p.id}) %></td>
     <td><%= link_to "edit", edit_park_photo_path({park_id: @park,id: p.id}) %>
         <%= link_to 'delete', "/parks/#{@park.id}/photos/#{p.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
