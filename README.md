@@ -28,6 +28,10 @@ To use this app, just clone, run 'bundle install' and then run 'rake db:migrate'
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/'chrisrobertspdx'/park_explorer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+## Supporting Docs
+- https://www.adrianprieto.com/how-to-setup-devise-and-omniauth-for-your-rails-application/
+- https://github.com/carrierwaveuploader/carrierwave
+
 ## License
 
 This project is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
