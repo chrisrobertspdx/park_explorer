@@ -18,7 +18,7 @@
 
 <p><%= link_to "Add Photo", new_park_photo_path(@park) %></p>
 
-<h3>Category Summary</h3>
+<h3>Category Average</h3>
 <% Category.all.each {|c| %>
   <%= c.name %>: <%=@park.get_cat_score(c)%><br>
 <% } %>

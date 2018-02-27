@@ -15,12 +15,13 @@ def get_cat_score(category)
     score = 0;
     self.photos.each { |p|
         p.photo_categories.each { |pc|
-            if pc.category_id == category.id
+            if pc.category_id == category.id && pc.score != nil
+                #binding.pry
                 score += pc.score
             end
         }
     }
-    score
+    (score.to_f / self.photos.size).round(2)
 end
 
 def self.popular

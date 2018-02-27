@@ -18,7 +18,9 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+        #custom writer category scores does not fire on save
+        @photo.category_scores=(photo_params["category_scores"])
+        format.html { redirect_to @photo.park, notice: 'Photo was successfully created.' }
       else
         format.html { render action: 'new' }
       end

@@ -1,5 +1,7 @@
 class ParksController < ApplicationController
-
+    
+    before_action :authorize_admin, :except => [:index,:show]
+    
     def index
         @parks = Park.all
     end
@@ -50,4 +52,14 @@ class ParksController < ApplicationController
     def park_params
         params.require(:park).permit(:name, :description)
     end
+    
+    private 
+    
+    def authorize_admin
+        if current_user.role == nil || current_user.role != 'admin'
+           flash[:notice] = "Unauthorized!!!!"
+           redirect_to parks_path
+        end
+    end
+
 end

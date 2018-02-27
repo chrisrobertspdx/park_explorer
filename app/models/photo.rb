@@ -28,7 +28,7 @@ class Photo < ApplicationRecord
     
     #depends on order; assumes photo_categories already updated; BAD DESIGN
     def category_scores=(data)
-        
+        #binding.pry
         data.keys.each { |k|
             if @pc = self.photo_categories.find_by(category_id: k) 
                @pc.score = data[k][0]
